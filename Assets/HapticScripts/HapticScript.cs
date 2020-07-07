@@ -19,6 +19,6 @@ public class HapticScript : MonoBehaviour
         Debug.Log("Vibrate");
         
         Handheld.Vibrate();
-        FindObjectOfType<AudioManager>().PlayAudio("Haptic");
+        FindObjectOfType<AudioManager>().PlayAudio();
     }
 }
