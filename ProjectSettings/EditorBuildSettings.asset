@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/FlappyBird/GameScene.unity
+    guid: 95507e3d50e60cf43a954ff6347658cf
+  - enabled: 1
+    path: Assets/ColorPicker/color_piker_demo.unity
+    guid: 980de99c6f43b9842b086f4084860132
   m_configObjects: {}
