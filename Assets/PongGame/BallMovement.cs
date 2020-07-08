@@ -11,8 +11,10 @@ public class BallMovement : MonoBehaviour
     {
         StartCoroutine(StartBall());
     }
+    
     public IEnumerator StartBall(bool isplayer1=true)
     {
+        ResetBallPosition(isplayer1);
         hitCounter = 0;
         yield return new WaitForSeconds(2f);
         if (isplayer1)
@@ -41,6 +43,18 @@ public class BallMovement : MonoBehaviour
         {
             hitCounter++;
 
+        }
+    }
+    private void ResetBallPosition(bool isplayer1)
+    {
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        if (isplayer1)
+        {
+            gameObject.transform.localPosition = new Vector3(-100, 0, 0);
+        }
+        else
+        {
+            gameObject.transform.localPosition = new Vector3(100, 0, 0);
         }
     }
 }
