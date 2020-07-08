@@ -6,6 +6,7 @@ public class CollisionController : MonoBehaviour
 {
     public BallMovement ballMovement;
     public ScoreManager scoreManager;
+    public AudioController audioController;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,7 @@ public class CollisionController : MonoBehaviour
     }
     void Bounce(Collision2D coll)
     {
+        
         Vector3 ballPostion = transform.position;
         Vector3 racketPostion = coll.transform.position;
         float racketHeight = GetComponent<Collider2D>().bounds.size.y;
@@ -33,17 +35,21 @@ public class CollisionController : MonoBehaviour
     {
         if (collision.gameObject.name == "RacketPlayer1" || collision.gameObject.name == "RacketPlayer2")
         {
+            audioController.PlayAudio("RacketAudio");
             Bounce(collision);
+           
         }
         else if (collision.gameObject.name == "WallLeft")
         {
             Debug.Log("collision with wall left");
+            audioController.PlayAudio("WallAudio");
             scoreManager.GoalPlayer2();
             StartCoroutine(ballMovement.StartBall(true));
         }
         else if (collision.gameObject.name == "WallRight")
         {
             Debug.Log("collision with wall Right");
+            audioController.PlayAudio("WallAudio");
             scoreManager.GoalPlayer1();
             StartCoroutine(ballMovement.StartBall(false));
         }
